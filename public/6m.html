@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data välja</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>6m tulemused</h1>
+    <a href="index.html">Avalehele</a> |
+    <a href="all.html">Edetabel</a>
+    <div id="dbsisu"></div>
+    <div>sorteeri <a href="#" id="time">aja järgi</a> | 
+        <a href="#" id="nimi1">nime järgi</a> | <a href="#" id="protsendi">protsendi järgi</a></div>
+<script>
+getData();
+
+//sorteerimine algab
+const selfies = [];
+
+document.getElementById('time').addEventListener('click', event => {
+  sortData((a, b) => b.time - a.time);
+});
+
+
+
+document.getElementById('nimi1').addEventListener('click', event => {
+  sortData((a, b) => { 
+    if (b.nimi > a.nimi) return -1;
+    else return 1;
+  });
+});
+
+document.getElementById('protsendi').addEventListener('click', event => {
+  sortData((a, b) => {
+    //if (kaugus1 == 6) siia vaja saada üks if veel ehk 6m kellel parim protsent.
+    if (b.protsendike < a.protsendike) 
+    return -1;
+    else return 1;
+  });
+});
+
+function sortData(compare) {
+  for (let item of selfies) {
+    item.elt.remove();
+  }
+  selfies.sort(compare);
+  for (let item of selfies) {
+    document.body.append(item.elt);
+  }
+}
+//sorteerimine lõppeb
+
+  
+
+    async function getData() {
+      const response = await fetch('/api');
+      const data = await response.json();
+
+
+      
+
+      for (item of data) {
+          const root = document.createElement("p");
+          const nimi = document.createElement("div");
+          const geo = document.createElement("div");
+          const date = document.createElement("div");
+          if (item.kaugus1 == 6) {
+     
+          const protsent = Math.round(eval(item.tabamusi*100 / item.mitmest))
+          geo.textContent = `${item.tabamusi} / ${item.mitmest}. `;
+          nimi.innerHTML = `<b>${item.nimi}.</b> Tabavusprotsent ${item.kaugus1}-lt meetrilt <b>${protsent}%</b> (${item.tabamusi} / ${item.mitmest})`;   
+          const dateString = new Date(item.timestamp).toLocaleString();  
+          date.innerHTML = `<i>Millal:</i> ${dateString}<br>`;
+          root.append(nimi, date);
+            //oluline sorteerimiseks
+            selfies.push({ elt: root, time: item.timestamp, nimi: item.nimi, protsendike: item.protsendike });
+            document.body.append(root);
+      } else {
+          console.log("midagi ei klapi")
+      }}
+
+
+
+
+
+      console.log(data)
+    }
+    
+
+</script>
+    
+    
+</body>
+</html>
