@@ -9,13 +9,19 @@
 </head>
 <body>
     <h1>Kõigi tulemused</h1>
-    <a href="index.html">Avalehele</a>
+    <h3><a href="index.html">Avalehele</a></h3>
     <div id="dbsisu"></div>
     <div>sorteeri <a href="#" id="time">aja järgi</a> | 
         <a href="#" id="nimi1">nime järgi</a> | 
-        <a href="#" id="protsendi">protsendi järgi</a> |
+        <a href="#" id="protsendi">protsendi järgi</a> | 
         <a href="6m.html" id="6m">6m parimad</a>
       </div>
+    
+
+
+
+
+
 <script>
 getData();
 
@@ -61,20 +67,29 @@ function sortData(compare) {
       const response = await fetch('/api');
       const data = await response.json();
       for (item of data) {
-          const root = document.createElement("p");
-          const nimi = document.createElement("div");
-          //const geo = document.createElement("div");
-          const date = document.createElement("div");
+          const tabel1 = document.getElementById("tabel")
+          const root = document.createElement("tr");
+          const nimi = document.createElement("th");
+          nimi.classList.add("tabel2");
+          const tprotsent = document.createElement("th");
+          tprotsent.classList.add("tabel2");
+          const kaugusepoiss = document.createElement("th");
+          kaugusepoiss.classList.add("tabel2");
+          const date = document.createElement("th");
+          date.classList.add("tabel2");
           
           
-
-          
-          //geo.textContent = `${item.tabamusi} / ${item.mitmest}. `;
-          nimi.innerHTML = `<b>${item.nimi}.</b> Tabavusprotsent ${item.kaugus1}-lt meetrilt <b>${item.protsendike}%</b> (${item.tabamusi} / ${item.mitmest})`;   
+          nimi.innerHTML = `<b>${item.nimi}</b>`;
+          tprotsent.innerHTML = `<b> ${item.protsendike}%</b>`
+          kaugusepoiss.innerHTML = `<b> ${item.kaugus1}m</b>`   
           const dateString = new Date(item.timestamp).toLocaleDateString();  
-          date.innerHTML = `<i>Millal:</i> ${dateString}<br>`;
-          root.append(nimi, date);
-        //oluline sorteerimiseks
+          date.innerHTML = `${dateString}<br>`;
+          
+          root.append(nimi, tprotsent, kaugusepoiss, date);
+          
+       
+       
+          //oluline sorteerimiseks
           selfies.push({ elt: root, time: item.timestamp, nimi: item.nimi, protsendike: item.protsendike });
           document.body.append(root);
       }
@@ -86,7 +101,7 @@ function sortData(compare) {
     
 
 </script>
-    
+
     
 </body>
 </html>
