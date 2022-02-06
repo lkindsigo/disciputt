@@ -432,26 +432,24 @@ getData();
 //sorteerimine algab
 const selfies = [];
 
-document.getElementById('time').addEventListener('click', event => {
-  sortData((a, b) => b.time - a.time);
-});
+//document.getElementById('time').addEventListener('click', event => {
+//  sortData((a, b) => b.time - a.time);
+//});
 
+//document.getElementById('nimi1').addEventListener('click', event => {
+  //sortData((a, b) => { 
+    //if (b.nimi > a.nimi) return -1;
+    //else return 1;
+  //});
+//});
 
-
-document.getElementById('nimi1').addEventListener('click', event => {
-  sortData((a, b) => { 
-    if (b.nimi > a.nimi) return -1;
-    else return 1;
-  });
-});
-
-document.getElementById('protsendi').addEventListener('click', event => {
-  sortData((a, b) => {
-    if (b.protsendike < a.protsendike) 
-    return -1;
-    else return 1;
-  });
-});
+//document.getElementById('protsendi').addEventListener('click', event => {
+ // sortData((a, b) => {
+  //  if (b.protsendike < a.protsendike) 
+  //  return -1;
+   // else return 1;
+  //});
+//});
 
 function sortData(compare) {
   for (let item of selfies) {
