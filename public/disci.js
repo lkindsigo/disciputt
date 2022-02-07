@@ -432,9 +432,9 @@ getData();
 //sorteerimine algab
 const selfies = [];
 
-//document.getElementById('tulemused2').addEventListener('click', () => {
- // sortData((a, b) => b.time - a.time);
-//});
+document.getElementById('tulemused2').addEventListener('click', () => {
+  sortData((a, b) => b.time - a.time);
+});
 
 
 //document.getElementById('nimi1').addEventListener('click', event => {
@@ -470,16 +470,16 @@ function sortData(compare) {
       const data = await response.json();
 
       for (item of data) {
-        const tabel1 = document.getElementById("tabel2")
-        const root1 = document.createElement("tr");
-        const nimi = document.createElement("th");
-        nimi.classList.add("tabel2");
-        const tprotsent = document.createElement("th");
-        tprotsent.classList.add("tabel2");
-        const kaugusepoiss = document.createElement("th");
-        kaugusepoiss.classList.add("tabel2");
-        const date = document.createElement("th");
-        date.classList.add("tabel2");
+       
+        const root = document.createElement("tr");
+          const nimi = document.createElement("th");
+          nimi.classList.add("tabel2");
+          const tprotsent = document.createElement("th");
+          tprotsent.classList.add("tabel3");
+          const kaugusepoiss = document.createElement("th");
+          kaugusepoiss.classList.add("tabel3");
+          const date = document.createElement("th");
+          date.classList.add("tabel4")
         
           if (item.nimi == "Lauri") {
      
@@ -489,9 +489,10 @@ function sortData(compare) {
             const dateString = new Date(item.timestamp).toLocaleDateString();  
             date.innerHTML = `${dateString}<br>`;
             
-            tabel1.append( root1, nimi, tprotsent, kaugusepoiss, date);
+            root.append(nimi, tprotsent, kaugusepoiss, date);
             //oluline sorteerimiseks
-            
+            selfies.push({ elt: root, time: item.timestamp, nimi: item.nimi, protsendike: item.protsendike });
+          document.body.append(root);
       } else {
           console.log("midagi ei klapi")
       }}

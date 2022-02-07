@@ -164,20 +164,41 @@ li {
   border-radius: 6px;
 }
 
-table,
-th,
-td {
-  border: 1px solid black;
+th {
+  border: 1px solid #ddd;
 }
 
 .tabel2 {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-
+  width: 100px;
   border: 1px solid #ddd;
   padding: 2px;
 }
 
 .tabel2:hover {
+  background-color: #ddd;
+}
+
+.tabel3 {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60px;
+  border: 1px solid #ddd;
+  padding: 2px;
+}
+
+.tabel3:hover {
+  background-color: #ddd;
+}
+.tabel4 {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100px;
+  border: 1px solid #ddd;
+  padding: 2px;
+}
+
+.tabel4:hover {
   background-color: #ddd;
 }

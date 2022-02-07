@@ -67,16 +67,16 @@ function sortData(compare) {
       const response = await fetch('/api');
       const data = await response.json();
       for (item of data) {
-          const tabel1 = document.getElementById("tabel")
+          //const tabel1 = document.getElementById("tabel")
           const root = document.createElement("tr");
           const nimi = document.createElement("th");
           nimi.classList.add("tabel2");
           const tprotsent = document.createElement("th");
-          tprotsent.classList.add("tabel2");
+          tprotsent.classList.add("tabel3");
           const kaugusepoiss = document.createElement("th");
-          kaugusepoiss.classList.add("tabel2");
+          kaugusepoiss.classList.add("tabel3");
           const date = document.createElement("th");
-          date.classList.add("tabel2");
+          date.classList.add("tabel4");
           
           
           nimi.innerHTML = `<b>${item.nimi}</b>`;
