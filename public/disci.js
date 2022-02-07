@@ -26,6 +26,12 @@ var nupuke19 = document.getElementById("üheksateist")
 var nupuke20 = document.getElementById("kakskümmend")
 
 
+
+
+
+
+
+
 const nupp1 = document.getElementById("nupp1");
     nupp1.addEventListener("click", geolock);
     async function geolock() {
@@ -52,7 +58,11 @@ const nupp1 = document.getElementById("nupp1");
             const json = await response.json();
             console.log(json)
             console.log("katse")
+            //siia uus nimi katse asemele
+            const proov = document.getElementById("lemmiktoit").value;
+            localStorage.setItem("lastname", proov);
             
+           // const nimeke = localStorage.getItem("lastname");
     };
 
 
@@ -480,8 +490,8 @@ function sortData(compare) {
           kaugusepoiss.classList.add("tabel3");
           const date = document.createElement("th");
           date.classList.add("tabel4")
-        
-          if (item.nimi == "Lauri") {
+          const nimeke = localStorage.getItem("lastname");
+          if (item.nimi == nimeke) {
      
             nimi.innerHTML = `<b>${item.nimi}</b>`;
             tprotsent.innerHTML = `<b> ${item.protsendike}%</b>`
@@ -494,7 +504,7 @@ function sortData(compare) {
             selfies.push({ elt: root, time: item.timestamp, nimi: item.nimi, protsendike: item.protsendike });
           document.body.append(root);
       } else {
-          console.log("midagi ei klapi")
+          
       }}
 
 
@@ -504,5 +514,17 @@ function sortData(compare) {
       console.log(data)
     }
   // siin lõppeb minu tulemus avaekraanil  
-
   
+const katsenupp = document.getElementById("katsenupp")
+
+
+//katsenupp.addEventListener("click", katsepoiss);
+//function katsepoiss(){
+  //document.getElementById("lemmiktoit").innerHTML = "Siga"
+  //  const proov = document.getElementById("katse").value;
+  //  localStorage.setItem("lastname", proov);
+  
+//}
+//document.getElementById("katsetulemus").innerHTML = localStorage.getItem("lastname");
+
+document.getElementById("lemmiktoit").value = localStorage.getItem("lastname");
