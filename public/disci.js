@@ -25,30 +25,14 @@ var nupuke18 = document.getElementById("kaheksateist")
 var nupuke19 = document.getElementById("üheksateist")
 var nupuke20 = document.getElementById("kakskümmend")
 
-//if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
- // deviceEventType = 'touchstart'
-//} else {
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  deviceEventType = 'touchstart'
+} else {
 //If its not a mobile device use 'click'
-// deviceEventType = 'click'
-//}
-window.addEventListener("pointerdown", detectInputType);
-
-function detectInputType(event) {
-    switch(event.pointerType) {
-        case "mouse":
-            console.log("hiirepoiss")
-            break;
-        case "pen":
-            /* pen/stylus input detected */
-            break;
-        case "touch":
-            /* touch input detected */
-            break;
-        default:
-            /* pointerType is empty (could not be detected)
-            or UA-specific custom type */
-    }
+ deviceEventType = 'click'
 }
+
+
 
 const nupp1 = document.getElementById("nupp1");
     nupp1.addEventListener("click", geolock);
