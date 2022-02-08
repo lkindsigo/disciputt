@@ -156,7 +156,6 @@ li {
 
 .kastnr {
   size: 1px;
-  text-transform: capitalize;
 
   border: 1px solid var(--clr-black);
   cursor: pointer;

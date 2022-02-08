@@ -27,12 +27,20 @@ var nupuke20 = document.getElementById("kakskümmend")
 
 
 
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  deviceEventType = 'touchstart'
+  console.log("telo")
+} else {
+//If its not a mobile device use 'click'
+ deviceEventType = 'click'
+ console.log("arvuti")
+}
 
 
 
 const nupp1 = document.getElementById("nupp1");
-    nupp1.addEventListener("touchstart", geolock);
-    async function geolock(e) {
+    nupp1.addEventListener(deviceEventType, geolock);
+    async function geolock() {
      
             const nimi = document.getElementById("lemmiktoit").value;
             const tabamusi = document.getElementById('carBrand').value;
@@ -57,7 +65,7 @@ const nupp1 = document.getElementById("nupp1");
           
             const proov = document.getElementById("lemmiktoit").value;
             localStorage.setItem("lastname", proov);
-            e.prevenDefault()
+            
            // const nimeke = localStorage.getItem("lastname");
     };
 
