@@ -25,17 +25,21 @@ var nupuke18 = document.getElementById("kaheksateist")
 var nupuke19 = document.getElementById("üheksateist")
 var nupuke20 = document.getElementById("kakskümmend")
 
-
-
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  deviceEventType = 'touchstart'
+} else {
+//If its not a mobile device use 'click'
+  deviceEventType = 'click'
+}
 
 
 
 
 
 const nupp1 = document.getElementById("nupp1");
-    nupp1.addEventListener("click", geolock);
-    async function geolock() {
-           
+    nupp1.addEventListener(deviceEventType, geolock);
+    async function geolock(evt) {
+           evt.preventDefault();
             const nimi = document.getElementById("lemmiktoit").value;
             const tabamusi = document.getElementById('carBrand').value;
             const mitmest = document.getElementById('carPrice').value;
