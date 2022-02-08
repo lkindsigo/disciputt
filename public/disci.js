@@ -36,7 +36,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 const nupp1 = document.getElementById("nupp1");
     nupp1.addEventListener("click", geolock);
-    async function geolock() {
+    async function geolock(e) {
       
             const nimi = document.getElementById("lemmiktoit").value;
             const tabamusi = document.getElementById('carBrand').value;
@@ -60,7 +60,7 @@ const nupp1 = document.getElementById("nupp1");
             
             const proov = document.getElementById("lemmiktoit").value;
             localStorage.setItem("lastname", proov);
-            
+            e.prevenDefault()
            // const nimeke = localStorage.getItem("lastname");
     };
 
