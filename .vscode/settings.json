@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e27d1c45-c5db-4c68-a572-baed0b1e8880/resourceGroups/lagri_group/providers/Microsoft.Web/sites/lagri",
+    "appService.deploySubpath": "."
+}
