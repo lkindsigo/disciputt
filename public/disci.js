@@ -35,7 +35,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 
 const nupp1 = document.getElementById("nupp1");
-    nupp1.addEventListener("click", geolock);
+    nupp1.addEventListener(deviceEventType, geolock);
     async function geolock(e) {
       
             const nimi = document.getElementById("lemmiktoit").value;
