@@ -37,7 +37,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 const nupp1 = document.getElementById("nupp1");
     nupp1.addEventListener(deviceEventType, geolock);
     async function geolock(e) {
-      
+     
             const nimi = document.getElementById("lemmiktoit").value;
             const tabamusi = document.getElementById('carBrand').value;
             const mitmest = document.getElementById('carPrice').value;
@@ -52,12 +52,13 @@ const nupp1 = document.getElementById("nupp1");
                    'Content-Type': 'application/json'
                 }
             }
+           
             const response = await fetch("/api", options)
             const json = await response.json();
             console.log(json)
             console.log("katse")
             //siia uus nimi katse asemele
-            
+          
             const proov = document.getElementById("lemmiktoit").value;
             localStorage.setItem("lastname", proov);
             e.prevenDefault()
