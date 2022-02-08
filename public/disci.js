@@ -35,11 +35,7 @@ var nupuke20 = document.getElementById("kakskümmend")
 const nupp1 = document.getElementById("nupp1");
     nupp1.addEventListener("click", geolock);
     async function geolock() {
-            
-            //const lat = position.coords.latitude;
-            //const lon = position.coords.longitude;
-            //document.getElementById("latitude").innerText = lat;
-            //document.getElementById("longitude").textContent = lon;
+           
             const nimi = document.getElementById("lemmiktoit").value;
             const tabamusi = document.getElementById('carBrand').value;
             const mitmest = document.getElementById('carPrice').value;
@@ -447,21 +443,6 @@ document.getElementById('tulemused2').addEventListener('click', () => {
 });
 
 
-//document.getElementById('nimi1').addEventListener('click', event => {
-  //sortData((a, b) => { 
-    //if (b.nimi > a.nimi) return -1;
-    //else return 1;
-  //});
-//});
-
-//document.getElementById('protsendi').addEventListener('click', event => {
- // sortData((a, b) => {
-  //  if (b.protsendike < a.protsendike) 
-  //  return -1;
-   // else return 1;
-  //});
-//});
-
 function sortData(compare) {
   for (let item of selfies) {
     item.elt.remove();
@@ -515,7 +496,7 @@ function sortData(compare) {
     }
   // siin lõppeb minu tulemus avaekraanil  
   
-const katsenupp = document.getElementById("katsenupp")
+//const katsenupp = document.getElementById("katsenupp")
 
 
 //katsenupp.addEventListener("click", katsepoiss);
