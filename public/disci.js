@@ -25,17 +25,13 @@ var nupuke18 = document.getElementById("kaheksateist")
 var nupuke19 = document.getElementById("üheksateist")
 var nupuke20 = document.getElementById("kakskümmend")
 
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-  deviceEventType = 'touchstart'
-} else {
-//If its not a mobile device use 'click'
- deviceEventType = 'click'
-}
+
+
 
 
 
 const nupp1 = document.getElementById("nupp1");
-    nupp1.addEventListener(deviceEventType, geolock);
+    nupp1.addEventListener("touchstart", geolock);
     async function geolock(e) {
      
             const nimi = document.getElementById("lemmiktoit").value;
