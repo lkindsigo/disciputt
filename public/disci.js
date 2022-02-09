@@ -46,7 +46,7 @@ const nupp1 = document.getElementById("nupp1");
             const tabamusi = document.getElementById('carBrand').value;
             const mitmest = document.getElementById('carPrice').value;
             const kaugus1 = document.getElementById("kaugus").value;
-            const protsendike = Math.round(eval(tabamusi*100 / mitmest))
+            const protsendike = Math.round(tabamusi*100 / mitmest)
 
             const data = { nimi, tabamusi, mitmest, kaugus1, protsendike }
             const options = {
