@@ -36,7 +36,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
  console.log("arvuti")
 }
 
-
+//katse
 
 const nupp1 = document.getElementById("nupp1");
     nupp1.addEventListener(deviceEventType, geolock);
