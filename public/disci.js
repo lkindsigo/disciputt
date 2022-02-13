@@ -27,20 +27,18 @@ var nupuke20 = document.getElementById("kakskümmend")
 
 
 
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-  deviceEventType = 'touchstart'
-  console.log("telo")
-} else {
-//If its not a mobile device use 'click'
- deviceEventType = 'click'
- console.log("arvuti")
-}
 
-//katsetus tyafal alkla flkajl fjajlf jalksdjfl jaldkfj lkajf dlkl
+
+//document.getElementById("nupp1").onclick = async () =>
+
+//{
+
+  //ja siia funktsiooni sisu
+
+//};
 
 const nupp1 = document.getElementById("nupp1");
-    nupp1.addEventListener(deviceEventType, geolock);
-    async function geolock() {
+    nupp1.onclick = async () =>  {
      
             const nimi = document.getElementById("lemmiktoit").value;
             const tabamusi = document.getElementById('carBrand').value;
