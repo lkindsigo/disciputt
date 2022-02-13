@@ -27,16 +27,6 @@ var nupuke20 = document.getElementById("kakskümmend")
 
 
 
-
-
-//document.getElementById("nupp1").onclick = async () =>
-
-//{
-
-  //ja siia funktsiooni sisu
-
-//};
-
 const nupp1 = document.getElementById("nupp1");
     nupp1.onclick = async () =>  {
      
@@ -67,7 +57,22 @@ const nupp1 = document.getElementById("nupp1");
            // const nimeke = localStorage.getItem("lastname");
     };
 
-
+    function kinnitus() {
+      var txt;
+      var r = confirm("Kas oled kindel, et soovid kogu ajaloo kustutada?");
+      if (r == true) {
+        localStorage.clear()
+        txt = "Kogu ajalugu kustutatud!";
+      } else {
+        location.reload();
+      }
+      document.getElementById("kust").innerHTML = txt;
+    }
+    
+    window.onload =function(){ 
+        document.getElementById("clearButton").onclick = kinnitus
+        
+    }
 
 
 
